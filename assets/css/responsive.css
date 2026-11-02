@@ -1,0 +1,56 @@
+/* assets/css/responsive.css - Additional Responsive Fixes */
+
+/* Extra Small Devices (Phones) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero-left h1 {
+        font-size: 28px;
+    }
+    
+    .form-card {
+        padding: 25px;
+    }
+    
+    .package-cards {
+        flex-direction: column;
+    }
+    
+    .section-header h2 {
+        font-size: 28px;
+    }
+    
+    .price-value {
+        font-size: 32px;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-sample {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 768px) {
+    .hero-left h1 {
+        font-size: 36px;
+    }
+    
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navbar, .footer, .btn-sample, .btn-price, .form-card {
+        display: none;
+    }
+}

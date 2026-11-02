@@ -1,0 +1,288 @@
+/* /patchwebsite/assets/css/responsive.css */
+
+/* ---------- Extra Small Devices (Phones) ---------- */
+@media (max-width: 576px) {
+    .top-bar {
+        display: none;
+    }
+    
+    .navbar {
+        top: 0;
+        padding: 8px 0;
+    }
+    
+    .hero {
+        padding: 100px 0 60px;
+        text-align: center;
+        min-height: auto;
+    }
+    .hero h1 {
+        font-size: 28px;
+    }
+    .hero-text {
+        font-size: 14px !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero .btn-group {
+        justify-content: center;
+    }
+    .hero .btn-hero-primary,
+    .hero .btn-hero-secondary {
+        padding: 10px 24px;
+        font-size: 13px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .section-title h2 {
+        font-size: 26px;
+    }
+    .section-title p {
+        font-size: 14px;
+    }
+    
+    .service-card {
+        padding: 16px;
+    }
+    .service-card .service-image {
+        height: 140px;
+    }
+    
+    .card-punchy {
+        padding: 20px;
+    }
+    .card-punchy .icon {
+        font-size: 30px;
+    }
+    
+    .auth-card {
+        padding: 24px 16px;
+        margin: 0 10px;
+    }
+    .auth-card .logo-text {
+        font-size: 22px;
+    }
+    
+    .pricing-card {
+        padding: 24px 16px;
+    }
+    .pricing-card .price {
+        font-size: 32px;
+    }
+    .pricing-tabs .nav-link {
+        padding: 6px 14px;
+        font-size: 12px;
+    }
+    
+    .portfolio-filters .btn {
+        padding: 4px 12px;
+        font-size: 11px;
+    }
+    .portfolio-item img {
+        height: 180px;
+    }
+    
+    .slider-container img {
+        height: 200px;
+    }
+    .slider-container .slider-handle::before {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+    
+    .blog-card .body {
+        padding: 16px;
+    }
+    .blog-card img {
+        height: 160px;
+    }
+    
+    .blog-detail-card {
+        padding: 16px;
+    }
+    .blog-detail-card .blog-content {
+        font-size: 15px;
+    }
+    .blog-detail-card h1 {
+        font-size: 24px !important;
+    }
+    
+    .service-detail {
+        padding: 40px 0;
+        text-align: center;
+    }
+    .service-detail h3 {
+        font-size: 24px;
+    }
+    .service-detail p {
+        font-size: 14px;
+    }
+    .service-detail .btn-hero-primary {
+        width: 100%;
+        text-align: center;
+    }
+    .service-detail .flex-row-reverse {
+        flex-direction: column-reverse !important;
+    }
+    
+    .footer {
+        text-align: center;
+        padding: 40px 0 20px;
+    }
+    .footer .social {
+        justify-content: center;
+    }
+    .footer .file-formats,
+    .footer .payment-methods {
+        justify-content: center;
+    }
+    .footer-bottom .text-md-end {
+        text-align: center !important;
+        margin-top: 8px;
+    }
+    
+    .auth-page {
+        padding: 60px 0;
+    }
+}
+
+/* ---------- Small Devices (Tablets) ---------- */
+@media (min-width: 577px) and (max-width: 768px) {
+    .top-bar {
+        font-size: 11px;
+    }
+    .top-bar small {
+        display: inline-block;
+        margin: 0 4px;
+    }
+    
+    .navbar {
+        top: 32px;
+    }
+    
+    .hero {
+        padding: 140px 0 70px;
+        min-height: auto;
+    }
+    .hero h1 {
+        font-size: 36px;
+    }
+    .hero-text {
+        font-size: 16px !important;
+    }
+    
+    .section-title h2 {
+        font-size: 30px;
+    }
+    
+    .service-card .service-image {
+        height: 160px;
+    }
+    
+    .blog-detail-card {
+        padding: 24px;
+    }
+    
+    .service-detail {
+        padding: 40px 0;
+        text-align: center;
+    }
+    .service-detail .flex-row-reverse {
+        flex-direction: column-reverse !important;
+    }
+    .service-detail .btn-hero-primary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ---------- Medium Devices (Tablets & Small Laptops) ---------- */
+@media (max-width: 991px) {
+    .top-bar .text-end {
+        text-align: left !important;
+        margin-top: 4px;
+    }
+    .top-bar .col-md-6 {
+        text-align: center !important;
+    }
+    .top-bar small {
+        display: inline-block;
+        margin: 2px 8px;
+    }
+    
+    .navbar-nav {
+        padding: 15px 0;
+    }
+    .nav-link {
+        padding: 8px 0 !important;
+    }
+    .btn-signup {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .hero {
+        min-height: auto;
+    }
+    
+    .pricing-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start !important;
+        padding-bottom: 10px;
+        gap: 6px;
+    }
+    .pricing-tabs .nav-link {
+        white-space: nowrap;
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+    
+    .service-detail .flex-row-reverse {
+        flex-direction: column-reverse !important;
+    }
+    .service-detail {
+        text-align: center;
+    }
+    .service-detail .btn-hero-primary {
+        width: 100%;
+        text-align: center;
+    }
+    .service-detail-img {
+        max-height: 300px;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+/* ---------- Large Screens ---------- */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+/* ---------- Extra Large Screens ---------- */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+    .hero h1 {
+        font-size: 72px;
+    }
+}
+
+/* ---------- Print ---------- */
+@media print {
+    .top-bar,
+    .navbar,
+    .footer {
+        display: none !important;
+    }
+    .hero {
+        min-height: auto !important;
+        padding: 40px 0 !important;
+    }
+}

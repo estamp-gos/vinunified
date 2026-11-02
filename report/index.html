@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle History Report | VinUnified</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="btn-bar" id="btn-bar">
+    <button id="pdfBtn"><i class="fas fa-download"></i> Download PDF</button>
+    <button onclick="window.print()"><i class="fas fa-print"></i> Print</button>
+</div>
+
+<div id="printable-area"></div>
+
+<div class="nav-buttons">
+    <button class="nav-btn" id="prevBtn"><i class="fas fa-chevron-left"></i> Previous</button>
+    <span id="pageIndicator" style="display: flex; align-items: center; color: #6C6C8A;">Page 1 of 8</span>
+    <button class="nav-btn" id="nextBtn">Next <i class="fas fa-chevron-right"></i></button>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

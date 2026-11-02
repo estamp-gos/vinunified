@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PunchyArts - System Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0D0F12;
+            --bg-card: #181B20;
+            --cyan: #00F0FF;
+            --magenta: #FF0055;
+            --white: #FFFFFF;
+            --muted: #A0A5B5;
+            --border-color: #2A2F38;
+            --radius: 16px;
+        }
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        body {
+            background: var(--bg-dark);
+            color: var(--white);
+            padding: 40px 20px;
+            line-height: 1.7;
+        }
+        .doc-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* Header */
+        .doc-header {
+            text-align: center;
+            padding: 40px 0 30px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+        .doc-header .logo {
+            font-size: 36px;
+            font-weight: 800;
+        }
+        .doc-header .logo span {
+            color: var(--cyan);
+        }
+        .doc-header p {
+            color: var(--muted);
+            font-size: 16px;
+        }
+        .doc-header .badge-version {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--cyan);
+            padding: 4px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+
+        /* Quick Links - Top */
+        .quick-links {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 16px 24px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+            justify-content: center;
+        }
+        .quick-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
+        .quick-links a:hover {
+            color: var(--cyan);
+            border-bottom-color: var(--cyan);
+        }
+        .quick-links a i {
+            margin-right: 6px;
+            color: var(--cyan);
+        }
+        .quick-links .separator {
+            color: var(--border-color);
+        }
+
+        /* Navigation */
+        .doc-nav {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin-bottom: 40px;
+        }
+        .doc-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+        }
+        .doc-nav ul li a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 4px 0;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .doc-nav ul li a:hover {
+            color: var(--cyan);
+            border-bottom-color: var(--cyan);
+        }
+
+        /* Cards */
+        .doc-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 30px 32px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        .doc-card:hover {
+            border-color: rgba(0, 240, 255, 0.15);
+        }
+        .doc-card .card-icon {
+            color: var(--cyan);
+            font-size: 24px;
+            margin-right: 12px;
+        }
+        .doc-card h3 {
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+        }
+        .doc-card h3 .badge-count {
+            background: rgba(0, 240, 255, 0.08);
+            color: var(--cyan);
+            font-size: 12px;
+            padding: 2px 12px;
+            border-radius: 20px;
+            margin-left: 12px;
+            font-weight: 600;
+        }
+        .doc-card p, .doc-card li {
+            color: var(--muted);
+            font-size: 14px;
+        }
+        .doc-card ul {
+            padding-left: 20px;
+        }
+        .doc-card ul li {
+            margin-bottom: 6px;
+        }
+        .doc-card ul li i {
+            color: var(--cyan);
+            margin-right: 8px;
+            width: 16px;
+        }
+        .doc-card .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .doc-card .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .doc-card .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        /* Flow Diagram */
+        .flow-box {
+            background: #0A0C0F;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        .flow-box:hover {
+            border-color: var(--cyan);
+        }
+        .flow-box .flow-icon {
+            display: block;
+            font-size: 28px;
+            margin-bottom: 6px;
+            color: var(--cyan);
+        }
+
+        /* Table */
+        .table-custom {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table-custom thead th {
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: left;
+        }
+        .table-custom tbody td {
+            padding: 10px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            color: var(--muted);
+            font-size: 13px;
+        }
+        .table-custom tbody tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .table-custom a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+        .table-custom a:hover {
+            text-decoration: underline;
+        }
+
+        /* Badges */
+        .badge-status {
+            padding: 3px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .badge-status.success {
+            background: rgba(0, 255, 136, 0.12);
+            color: #00ff88;
+        }
+        .badge-status.info {
+            background: rgba(0, 240, 255, 0.12);
+            color: var(--cyan);
+        }
+        .badge-status.warning {
+            background: rgba(255, 193, 7, 0.12);
+            color: #ffc107;
+        }
+
+        /* Credentials Box */
+        .cred-box {
+            background: #0A0C0F;
+            border-radius: 12px;
+            padding: 16px 20px;
+            border-left: 3px solid var(--cyan);
+            margin-bottom: 10px;
+        }
+        .cred-box strong {
+            color: var(--white);
+        }
+        .cred-box span {
+            color: var(--muted);
+        }
+        .cred-box .pass {
+            color: var(--magenta);
+            font-weight: 600;
+        }
+        .cred-box a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+        .cred-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* URL Link Style */
+        .url-link {
+            color: var(--cyan) !important;
+            text-decoration: none !important;
+            font-weight: 500;
+        }
+        .url-link:hover {
+            text-decoration: underline !important;
+        }
+
+        /* Footer */
+        .doc-footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .doc-card .grid-2,
+            .doc-card .grid-3,
+            .doc-card .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            .doc-nav ul {
+                flex-direction: column;
+                gap: 4px;
+            }
+            .doc-card {
+                padding: 20px;
+            }
+            .doc-header .logo {
+                font-size: 28px;
+            }
+            body {
+                padding: 16px;
+            }
+            .quick-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 6px;
+            }
+            .quick-links .separator {
+                display: none;
+            }
+        }
+        @media (max-width: 576px) {
+            .doc-card .grid-2,
+            .doc-card .grid-3,
+            .doc-card .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="doc-wrapper">
+
+    <!-- ============================================
+    HEADER
+    ============================================ -->
+    <div class="doc-header">
+        <div class="logo">Punchy<span>Arts</span></div>
+        <p>System Flow Documentation</p>
+        <span class="badge-version">v1.0 • Production Ready</span>
+    </div>
+
+    <!-- ============================================
+    QUICK LINKS - TOP
+    ============================================ -->
+    <div class="quick-links">
+        <a href="https://vinunified.store/patchwebsite/" target="_blank"><i class="fas fa-home"></i> Website</a>
+        <span class="separator">|</span>
+        <a href="https://vinunified.store/patchwebsite/adminpanel/login.php" target="_blank"><i class="fas fa-shield-alt"></i> Admin Panel</a>
+        <span class="separator">|</span>
+        <a href="https://vinunified.store/patchwebsite/customerpanel/login.php" target="_blank"><i class="fas fa-user"></i> Customer Panel</a>
+        <span class="separator">|</span>
+        <a href="https://vinunified.store/patchwebsite/login" target="_blank"><i class="fas fa-sign-in-alt"></i> Login</a>
+        <span class="separator">|</span>
+        <a href="https://vinunified.store/patchwebsite/register" target="_blank"><i class="fas fa-user-plus"></i> Register</a>
+        <span class="separator">|</span>
+        <a href="https://hostinger.titan.email/mail/" target="_blank"><i class="fas fa-envelope"></i> Email</a>
+    </div>
+
+    <!-- ============================================
+    NAVIGATION
+    ============================================ -->
+    <div class="doc-nav">
+        <ul>
+            <li><a href="#website">🌐 Website Flow</a></li>
+            <li><a href="#admin">🛡️ Admin Panel</a></li>
+            <li><a href="#customer">👤 Customer Panel</a></li>
+            <li><a href="#order-status">📦 Order Status</a></li>
+            <li><a href="#email">📧 Email System</a></li>
+            <li><a href="#credentials">🔑 Credentials</a></li>
+            <li><a href="#urls">🔗 URLs</a></li>
+            <li><a href="#features">⭐ Features</a></li>
+        </ul>
+    </div>
+
+    <!-- ============================================
+    WEBSITE FLOW
+    ============================================ -->
+    <div id="website" class="doc-card">
+        <h3><i class="fas fa-globe card-icon"></i> Website Flow <span class="badge-count">Public</span></h3>
+        <p>Customer journey from visiting the website to placing an order.</p>
+
+        <div class="grid-2" style="margin-top:16px;">
+            <div class="flow-box">
+                <span class="flow-icon">🏠</span>
+                Home Page
+                <small style="display:block;color:var(--muted);font-weight:400;font-size:12px;">Hero • Services • Slider • Portfolio • Pricing • FAQ • Blog</small>
+            </div>
+            <div class="flow-box">
+                <span class="flow-icon">📋</span>
+                Services Page
+                <small style="display:block;color:var(--muted);font-weight:400;font-size:12px;">4 services with alternating layout</small>
+            </div>
+            <div class="flow-box">
+                <span class="flow-icon">🖼️</span>
+                Portfolio Page
+                <small style="display:block;color:var(--muted);font-weight:400;font-size:12px;">Category filters • Dynamic items</small>
+            </div>
+            <div class="flow-box">
+                <span class="flow-icon">💰</span>
+                Pricing Page
+                <small style="display:block;color:var(--muted);font-weight:400;font-size:12px;">Tab-based by service • Multiple plans</small>
+            </div>
+            <div class="flow-box">
+                <span class="flow-icon">❓</span>
+                FAQ Page
+                <small style="display:block;color:var(--muted);font-weight:400;font-size:12px;">Category filters • Accordion</small>
+            </div>
+            <div class="flow-box">
+                <span class="flow-icon">📰</span>
+                Blog Page
+                <small style="display:block;color:var(--muted);font-weight:400;font-size:12px;">Listing • Categories • Detail with related posts</small>
+            </div>
+            <div class="flow-box">
+                <span class="flow-icon">📧</span>
+                Contact Page
+                <small style="display:block;color:var(--muted);font-weight:400;font-size:12px;">Form with file upload • Business info</small>
+            </div>
+            <div class="flow-box">
+                <span class="flow-icon">🔐</span>
+                Authentication
+                <small style="display:block;color:var(--muted);font-weight:400;font-size:12px;">Login • Register • Forgot Password</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+    ADMIN PANEL
+    ============================================ -->
+    <div id="admin" class="doc-card">
+        <h3><i class="fas fa-shield-alt card-icon"></i> Admin Panel <span class="badge-count">Full Control</span></h3>
+        <p><a href="https://vinunified.store/patchwebsite/adminpanel/login.php" target="_blank" class="url-link">🔗 Open Admin Panel</a></p>
+
+        <div class="grid-2">
+            <div>
+                <ul>
+                    <li><i class="fas fa-chart-pie"></i> Dashboard - Stats, Recent Orders, Customers</li>
+                    <li><i class="fas fa-shopping-cart"></i> Orders - View, Filter, Search, Update Status</li>
+                    <li><i class="fas fa-users"></i> Customers - View, Search, Detail, Orders</li>
+                    <li><i class="fas fa-images"></i> Portfolio - Add, Edit, Delete, Upload Images</li>
+                    <li><i class="fas fa-newspaper"></i> Blog - Create, Edit, Delete, SEO Meta</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><i class="fas fa-question-circle"></i> FAQ - Add, Edit, Delete, Sort Order</li>
+                    <li><i class="fas fa-tag"></i> Pricing - Add, Edit, Delete per Service</li>
+                    <li><i class="fas fa-cogs"></i> Services - Add, Edit, Delete, Active/Inactive</li>
+                    <li><i class="fas fa-cog"></i> Settings - Site Info, Social Media, SEO</li>
+                    <li><i class="fas fa-upload"></i> Order Details - Production Files, Payment, Tracking</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+    CUSTOMER PANEL
+    ============================================ -->
+    <div id="customer" class="doc-card">
+        <h3><i class="fas fa-user card-icon"></i> Customer Panel <span class="badge-count">Logged In</span></h3>
+        <p><a href="https://vinunified.store/patchwebsite/customerpanel/login.php" target="_blank" class="url-link">🔗 Open Customer Panel</a></p>
+
+        <div class="grid-2">
+            <div>
+                <ul>
+                    <li><i class="fas fa-chart-simple"></i> Dashboard - Stats, Quick Actions, Recent Orders</li>
+                    <li><i class="fas fa-plus-circle"></i> New Order - 4 Service Forms with File Upload</li>
+                    <li><i class="fas fa-check-circle"></i> Order Complete - Confirmation with Order Number</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><i class="fas fa-file"></i> Order Details - Timeline, Files, Comments, History</li>
+                    <li><i class="fas fa-user-cog"></i> Profile - Update Info, Change Password</li>
+                    <li><i class="fas fa-download"></i> Download All - ZIP Download for Artwork & Production Files</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+    ORDER STATUS FLOW
+    ============================================ -->
+    <div id="order-status" class="doc-card">
+        <h3><i class="fas fa-arrow-right card-icon"></i> Order Status Flow</h3>
+
+        <div class="grid-2" style="margin-top:12px;">
+            <div class="flow-box" style="border-left:3px solid var(--cyan);">
+                <span class="flow-icon">📩</span>
+                Submitted
+                <small style="display:block;color:var(--muted);font-weight:400;">Customer submits order</small>
+            </div>
+            <div class="flow-box" style="border-left:3px solid #ffc107;">
+                <span class="flow-icon">🔍</span>
+                Reviewing
+                <small style="display:block;color:var(--muted);font-weight:400;">Admin reviews order</small>
+            </div>
+            <div class="flow-box" style="border-left:3px solid #0dcaf0;">
+                <span class="flow-icon">💰</span>
+                Quoted
+                <small style="display:block;color:var(--muted);font-weight:400;">Admin adds price & payment link</small>
+            </div>
+            <div class="flow-box" style="border-left:3px solid #0d6efd;">
+                <span class="flow-icon">⚙️</span>
+                In Production
+                <small style="display:block;color:var(--muted);font-weight:400;">Admin starts work</small>
+            </div>
+            <div class="flow-box" style="border-left:3px solid #198754;">
+                <span class="flow-icon">✅</span>
+                Completed
+                <small style="display:block;color:var(--muted);font-weight:400;">Admin uploads production files</small>
+            </div>
+            <div class="flow-box" style="border-left:3px solid #6f42c1;">
+                <span class="flow-icon">🚚</span>
+                Shipped *
+                <small style="display:block;color:var(--muted);font-weight:400;">Admin adds tracking number</small>
+            </div>
+            <div class="flow-box" style="border-left:3px solid #198754;">
+                <span class="flow-icon">🏠</span>
+                Delivered *
+                <small style="display:block;color:var(--muted);font-weight:400;">Order delivered</small>
+            </div>
+            <div class="flow-box" style="background:transparent;border-color:transparent;">
+                <small style="color:var(--muted);">* Physical Patches Only</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+    EMAIL SYSTEM
+    ============================================ -->
+    <div id="email" class="doc-card">
+        <h3><i class="fas fa-envelope card-icon"></i> Email System <span class="badge-count">10 Notifications</span></h3>
+        <p><a href="https://hostinger.titan.email/mail/" target="_blank" class="url-link">🔗 Open Email (Titan Mail)</a></p>
+
+        <div class="table-responsive">
+            <table class="table-custom">
+                <thead>
+                    <tr>
+                        <th>Email Type</th>
+                        <th>Recipient</th>
+                        <th>Trigger</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Welcome Email</td><td>Customer</td><td>After registration</td></tr>
+                    <tr><td>Order Confirmation</td><td>Customer</td><td>After placing an order</td></tr>
+                    <tr><td>New Order Notification</td><td>Admin</td><td>After customer places an order</td></tr>
+                    <tr><td>Order Status Update</td><td>Customer</td><td>When admin updates order status</td></tr>
+                    <tr><td>Production Files Ready</td><td>Customer</td><td>When admin uploads production files</td></tr>
+                    <tr><td>Shipping Notification</td><td>Customer</td><td>When admin adds tracking number</td></tr>
+                    <tr><td>Contact Form Message</td><td>Admin</td><td>When someone submits contact form</td></tr>
+                    <tr><td>Contact Form Copy</td><td>Customer</td><td>After submitting contact form</td></tr>
+                    <tr><td>Password Reset</td><td>Customer</td><td>When requesting password reset</td></tr>
+                    <tr><td>Test Email</td><td>Admin</td><td>When testing email system</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin-top:16px;padding:12px 16px;background:#0A0C0F;border-radius:8px;">
+            <p style="margin:0;font-size:13px;color:var(--muted);">
+                <strong style="color:var(--white);">Sender:</strong> patch@vinunified.store &nbsp;|&nbsp;
+                <strong style="color:var(--white);">SMTP:</strong> smtp.titan.email
+            </p>
+        </div>
+    </div>
+
+    <!-- ============================================
+    CREDENTIALS
+    ============================================ -->
+    <div id="credentials" class="doc-card">
+        <h3><i class="fas fa-key card-icon"></i> Credentials Summary</h3>
+
+        <div class="grid-2">
+            <div>
+                <div class="cred-box">
+                    <strong>🔐 Admin Panel</strong><br>
+                    <span>Email:</span> <span style="color:var(--cyan);">patch@vinunified.store</span><br>
+                    <span>Password:</span> <span class="pass">password123</span><br>
+                    <span style="font-size:12px;">🔗 <a href="https://vinunified.store/patchwebsite/adminpanel/login.php" target="_blank">https://vinunified.store/patchwebsite/adminpanel/login.php</a></span>
+                </div>
+                <div class="cred-box">
+                    <strong>👤 Customer Test</strong><br>
+                    <span>Email:</span> <span style="color:var(--cyan);">john@example.com</span><br>
+                    <span>Password:</span> <span class="pass">password123</span>
+                </div>
+                <div class="cred-box">
+                    <strong>👤 Customer Test</strong><br>
+                    <span>Email:</span> <span style="color:var(--cyan);">jane@example.com</span><br>
+                    <span>Password:</span> <span class="pass">password123</span>
+                </div>
+            </div>
+            <div>
+                <div class="cred-box" style="border-left-color:var(--magenta);">
+                    <strong>📧 Admin Email (Titan)</strong><br>
+                    <span>Email:</span> <span style="color:var(--cyan);">patch@vinunified.store</span><br>
+                    <span>Password:</span> <span class="pass">invoraSol-2025$</span><br>
+                    <span style="font-size:12px;">🔗 <a href="https://hostinger.titan.email/mail/" target="_blank">https://hostinger.titan.email/mail/</a></span>
+                </div>
+                <div class="cred-box" style="border-left-color:#ffc107;">
+                    <strong>🔧 Database</strong><br>
+                    <span>Database:</span> u854130977_forpatch<br>
+                    <span>Username:</span> u854130977_adminsaifk
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+    KEY URLs
+    ============================================ -->
+    <div id="urls" class="doc-card">
+        <h3><i class="fas fa-link card-icon"></i> Key URLs</h3>
+
+        <div class="grid-2">
+            <div>
+                <ul>
+                    <li><i class="fas fa-home"></i> <a href="https://vinunified.store/patchwebsite/" target="_blank" class="url-link">https://vinunified.store/patchwebsite/</a></li>
+                    <li><i class="fas fa-shield-alt"></i> <a href="https://vinunified.store/patchwebsite/adminpanel/login.php" target="_blank" class="url-link">/adminpanel/login.php</a></li>
+                    <li><i class="fas fa-user"></i> <a href="https://vinunified.store/patchwebsite/customerpanel/login.php" target="_blank" class="url-link">/customerpanel/login.php</a></li>
+                    <li><i class="fas fa-sign-in-alt"></i> <a href="https://vinunified.store/patchwebsite/login" target="_blank" class="url-link">/login</a></li>
+                    <li><i class="fas fa-user-plus"></i> <a href="https://vinunified.store/patchwebsite/register" target="_blank" class="url-link">/register</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> <a href="https://vinunified.store/patchwebsite/contact" target="_blank" class="url-link">/contact</a></li>
+                    <li><i class="fas fa-images"></i> <a href="https://vinunified.store/patchwebsite/portfolio" target="_blank" class="url-link">/portfolio</a></li>
+                    <li><i class="fas fa-tag"></i> <a href="https://vinunified.store/patchwebsite/pricing" target="_blank" class="url-link">/pricing</a></li>
+                    <li><i class="fas fa-question-circle"></i> <a href="https://vinunified.store/patchwebsite/faq" target="_blank" class="url-link">/faq</a></li>
+                    <li><i class="fas fa-newspaper"></i> <a href="https://vinunified.store/patchwebsite/blog" target="_blank" class="url-link">/blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+    FEATURES SUMMARY
+    ============================================ -->
+    <div id="features" class="doc-card">
+        <h3><i class="fas fa-star card-icon"></i> Features Summary</h3>
+
+        <div class="grid-3">
+            <div>
+                <h5 style="color:var(--cyan);font-weight:600;font-size:15px;">🌐 Public Website</h5>
+                <ul>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Responsive Design</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Dark Theme with Neon Accents</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> 4 Services with Images</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Before/After Slider</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Dynamic Portfolio</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Tab-based Pricing</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Blog with Categories</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Contact Form with File Upload</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> SEO Friendly</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Live Chat (Tawk.to)</li>
+                </ul>
+            </div>
+            <div>
+                <h5 style="color:var(--magenta);font-weight:600;font-size:15px;">👤 Customer Panel</h5>
+                <ul>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Dashboard with Stats</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> 4 Service Order Forms</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Multiple File Upload</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Order History</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Order Details with Timeline</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Artwork Files Management</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Production Files Download</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Comments System</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Profile Management</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Password Change</li>
+                </ul>
+            </div>
+            <div>
+                <h5 style="color:var(--cyan);font-weight:600;font-size:15px;">🛡️ Admin Panel</h5>
+                <ul>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Dashboard with Stats</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Order Management</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Status Updates</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Production File Upload</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Payment Management</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Shipping/Tracking Management</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Customer Management</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Portfolio Management</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Blog, FAQ, Pricing, Services</li>
+                    <li><i class="fas fa-check-circle" style="color:#00ff88;"></i> Settings Management</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+    CURRENT STATUS
+    ============================================ -->
+    <div class="doc-card">
+        <h3><i class="fas fa-check-circle card-icon" style="color:#00ff88;"></i> Current Status</h3>
+
+        <div class="grid-2">
+            <div>
+                <ul>
+                    <li><i class="fas fa-circle" style="color:#00ff88;font-size:12px;"></i> Domain: <strong style="color:var(--white);">Testing Domain</strong> (vinunified.store)</li>
+                    <li><i class="fas fa-circle" style="color:#00ff88;font-size:12px;"></i> Content: <strong style="color:var(--white);">✅ Final</strong></li>
+                    <li><i class="fas fa-circle" style="color:#00ff88;font-size:12px;"></i> Images: <strong style="color:var(--white);">Placeholder used</strong></li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><i class="fas fa-circle" style="color:#00ff88;font-size:12px;"></i> Data: <strong style="color:var(--white);">Testing data</strong> in database</li>
+                    <li><i class="fas fa-circle" style="color:#00ff88;font-size:12px;"></i> Ready for Live Domain: <strong style="color:#00ff88;">✅ Yes</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+    FOOTER
+    ============================================ -->
+    <div class="doc-footer">
+        <p>&copy; 2026 PunchyArts. All rights reserved.</p>
+        <p style="font-size:12px;color:#4A4F5A;">Documentation v1.0 • Generated on <?php echo date('F d, Y'); ?></p>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
