@@ -1,5 +1,5 @@
 <?php
-// process.php - Simplified (No DB, Direct Freemius Redirect)
+// process.php - Simplified (No DB, Direct Gumroad Redirect)
 
 session_start();
 require_once 'inc/config.php';
@@ -53,17 +53,14 @@ if (!$emailSent) {
 // ✅ Store in session (for reference)
 $_SESSION['form_data'] = $data;
 
-// ✅ Redirect to Freemius based on package
+// ✅ Redirect to Gumroad based on package
 $paymentUrl = '';
 switch($data['package']) {
     case 'basic':
-        $paymentUrl = PAYMENT_BASIC;    // $30
+        $paymentUrl = PAYMENT_BASIC;    // £25
         break;
     case 'premium':
-        $paymentUrl = PAYMENT_PREMIUM;  // $78
-        break;
-    case 'ultimate':
-        $paymentUrl = PAYMENT_ULTIMATE; // $50
+        $paymentUrl = PAYMENT_PREMIUM;  // £55
         break;
     default:
         $paymentUrl = PAYMENT_BASIC;

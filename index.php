@@ -166,23 +166,17 @@ $pricing = getPricingByCountry($userCountry);
                                     <label>Choose Your Package</label>
                                     <div class="package-cards">
                                         <label class="package-card">
-                                            <input type="radio" name="package" value="basic" data-price="<?php echo $pricing['basic']; ?>">
+                                            <input type="radio" name="package" value="basic" data-price="£25">
                                             <div class="package-icon"><i class="fas fa-file-alt"></i></div>
                                             <div class="package-name">Basic</div>
-                                            <div class="package-price"><?php echo $pricing['basic']; ?></div>
+                                            <div class="package-price">£25</div>
                                         </label>
                                         <label class="package-card popular">
                                             <div class="popular-tag">Most Popular</div>
-                                            <input type="radio" name="package" value="premium" data-price="<?php echo $pricing['premium']; ?>">
+                                            <input type="radio" name="package" value="premium" data-price="£55">
                                             <div class="package-icon"><i class="fas fa-crown"></i></div>
                                             <div class="package-name">Premium</div>
-                                            <div class="package-price"><?php echo $pricing['premium']; ?></div>
-                                        </label>
-                                        <label class="package-card">
-                                            <input type="radio" name="package" value="ultimate" data-price="<?php echo $pricing['ultimate']; ?>">
-                                            <div class="package-icon"><i class="fas fa-chart-simple"></i></div>
-                                            <div class="package-name">Ultimate</div>
-                                            <div class="package-price"><?php echo $pricing['ultimate']; ?></div>
+                                            <div class="package-price">£55</div>
                                         </label>
                                     </div>
                                 </div>
@@ -208,7 +202,7 @@ $pricing = getPricingByCountry($userCountry);
                         
                         <div class="form-footnote">
                             <i class="fas fa-lock"></i> Your data is secure. Deleted after 30 days.
-                            <span style="display:block; font-size:11px; margin-top:4px; opacity:0.7;">🔒 Payments powered by Freemius</span>
+                            <span style="display:block; font-size:11px; margin-top:4px; opacity:0.7;">🔒 Payments powered by Gumroad</span>
                         </div>
                     </div>
                 </div>
@@ -247,7 +241,7 @@ $pricing = getPricingByCountry($userCountry);
                     <div class="step-number">02</div>
                     <div class="step-icon"><i class="fas fa-credit-card"></i></div>
                     <h3>Complete Payment</h3>
-                    <p>Secure payment via Freemius</p>
+                    <p>Secure payment via Gumroad</p>
                 </div>
                 <div class="step-card">
                     <div class="step-number">03</div>
@@ -272,7 +266,7 @@ $pricing = getPricingByCountry($userCountry);
                 <div class="price-card">
                     <div class="price-icon"><i class="fas fa-file"></i></div>
                     <h3>Basic</h3>
-                    <div class="price-value"><?php echo $pricing['basic']; ?></div>
+                    <div class="price-value">£25</div>
                     <ul class="price-features">
                         <li><i class="fas fa-check"></i> Accident History</li>
                         <li><i class="fas fa-check"></i> Title Information</li>
@@ -283,7 +277,7 @@ $pricing = getPricingByCountry($userCountry);
                         <li><i class="fas fa-check"></i> 24/7 Email Support</li>
                         <li><i class="fas fa-check"></i> Instant PDF Delivery</li>
                     </ul>
-                    <a href="#multiStepForm" class="btn-price">Get Basic</a>
+                    <a href="https://gumroad.com/checkout?_gl=1*1u1gg8z*_ga*NTQxMDEyMjQ5LjE3OTM2MjE5MzU.*_ga_6LJN6D94N6*czE3OTM2MjE5MzQkbzEkZzEkdDE3OTM2MjE5NzAkajI0JGwwJGgw" class="btn-price">Get Basic</a>
                 </div>
                 
                 <!-- Premium Plan -->
@@ -291,7 +285,7 @@ $pricing = getPricingByCountry($userCountry);
                     <div class="popular-badge">Best Value</div>
                     <div class="price-icon"><i class="fas fa-crown"></i></div>
                     <h3>Premium</h3>
-                    <div class="price-value"><?php echo $pricing['premium']; ?></div>
+                    <div class="price-value">£55</div>
                     <ul class="price-features">
                         <li><i class="fas fa-check"></i> Everything in Basic</li>
                         <li><i class="fas fa-check"></i> Ownership History (3+ Owners)</li>
@@ -302,25 +296,7 @@ $pricing = getPricingByCountry($userCountry);
                         <li><i class="fas fa-check"></i> Priority Email Support</li>
                         <li><i class="fas fa-check"></i> 14-Day Free Updates</li>
                     </ul>
-                    <a href="#multiStepForm" class="btn-price">Get Premium</a>
-                </div>
-                
-                <!-- Ultimate Plan -->
-                <div class="price-card">
-                    <div class="price-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>Ultimate</h3>
-                    <div class="price-value"><?php echo $pricing['ultimate']; ?></div>
-                    <ul class="price-features">
-                        <li><i class="fas fa-check"></i> Everything in Premium</li>
-                        <li><i class="fas fa-check"></i> Worldwide Data Coverage (150+ Countries)</li>
-                        <li><i class="fas fa-check"></i> Stolen Vehicle Check</li>
-                        <li><i class="fas fa-check"></i> Flood & Fire Damage Report</li>
-                        <li><i class="fas fa-check"></i> Theft Recovery History</li>
-                        <li><i class="fas fa-check"></i> Lien & Loan Check</li>
-                        <li><i class="fas fa-check"></i> 24/7 Priority Phone Support</li>
-                        <li><i class="fas fa-check"></i> Free Report Updates (Lifetime)</li>
-                    </ul>
-                    <a href="#multiStepForm" class="btn-price">Get Ultimate</a>
+                    <a href="https://gumroad.com/checkout?_gl=1*1tzxhkm*_ga*NTQxMDEyMjQ5LjE3OTM2MjE5MzU.*_ga_6LJN6D94N6*czE3OTM2MjE5MzQkbzEkZzEkdDE3OTM2MjE5NTEkajQzJGwwJGgw" class="btn-price">Get Premium</a>
                 </div>
                 
             </div>
@@ -528,7 +504,7 @@ $pricing = getPricingByCountry($userCountry);
             <div class="footer-bottom">
                 <p>&copy; 2026 VinUnified.store | All Rights Reserved</p>
                 <p style="margin-top: 8px; font-size: 12px; opacity: 0.8;">
-                    <!--🔒 Payments powered by <strong>Freemius</strong>-->
+                    <!--🔒 Payments powered by <strong>Gumroad</strong>-->
                 </p>
             </div>
         </div>

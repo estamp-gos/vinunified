@@ -41,8 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
         step2.style.display = 'none';
     }
     
-    // ========== SCROLL TO FORM WHEN PRICING BUTTON CLICKED ==========
-    document.querySelectorAll('.btn-price, .btn-cta').forEach(btn => {
+    // ========== SCROLL TO FORM WHEN CTA BUTTON CLICKED ==========
+    // Note: .btn-price buttons are external Gumroad links, so they must
+    // NOT be intercepted here — otherwise checkout would never open.
+    document.querySelectorAll('.btn-cta').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             const formSection = document.querySelector('.form-card');

@@ -1,16 +1,15 @@
 <?php
-// inc/config.php - Simplified Config (No DB, Only Freemius)
+// inc/config.php - Simplified Config (No DB, Only Gumroad)
 
 define('SITE_URL', 'https://vinunified.store');
 define('SITE_NAME', 'VinUnified');
 define('ADMIN_EMAIL', 'rmoto7817@gmail.com'); // ✅ New admin email
 
 // ============================================
-// FREEMIUS PAYMENT LINKS (NO PADDLE / DOCUKIT)
+// GUMROAD PAYMENT LINKS
 // ============================================
-define('PAYMENT_BASIC', 'https://checkout.freemius.com/product/27824/plan/49921/');   // $30
-define('PAYMENT_PREMIUM', 'https://checkout.freemius.com/product/27824/plan/45987/'); // $78
-define('PAYMENT_ULTIMATE', 'https://checkout.freemius.com/product/27824/plan/47537/'); // $50
+define('PAYMENT_BASIC', 'https://gumroad.com/checkout?_gl=1*1u1gg8z*_ga*NTQxMDEyMjQ5LjE3OTM2MjE5MzU.*_ga_6LJN6D94N6*czE3OTM2MjE5MzQkbzEkZzEkdDE3OTM2MjE5NzAkajI0JGwwJGgw');   // £25
+define('PAYMENT_PREMIUM', 'https://gumroad.com/checkout?_gl=1*1tzxhkm*_ga*NTQxMDEyMjQ5LjE3OTM2MjE5MzU.*_ga_6LJN6D94N6*czE3OTM2MjE5MzQkbzEkZzEkdDE3OTM2MjE5NTEkajQzJGwwJGgw'); // £55
 
 // Error Reporting
 error_reporting(E_ALL);

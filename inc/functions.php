@@ -16,9 +16,8 @@ function generateOrderID() {
 
 function getPackageLabel($package) {
     $labels = [
-        'basic' => 'Basic ($30)',
-        'premium' => 'Premium ($78)',
-        'ultimate' => 'Ultimate ($50)'
+        'basic' => 'Basic (£25)',
+        'premium' => 'Premium (£55)'
     ];
     return $labels[$package] ?? ucfirst($package);
 }

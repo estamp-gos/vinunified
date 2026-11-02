@@ -44,7 +44,7 @@ function sendAdminNotification($data) {
                     <tr><td class='field'><span class='label'>📅 Submitted</span><span class='value'>" . date('Y-m-d H:i:s') . "</span></td></tr>
                 </table>
                 <div style='background: #FFF3CD; padding: 12px; border-radius: 8px; margin-top: 20px; text-align: center;'>
-                    ⚠️ Customer will be redirected to <strong>Freemius</strong> for payment.
+                    ⚠️ Customer will be redirected to <strong>Gumroad</strong> for payment.
                 </div>
             </div>
             <div class='footer'>
