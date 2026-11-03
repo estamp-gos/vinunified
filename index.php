@@ -279,7 +279,7 @@ $pricing = getPricingByCountry($userCountry);
                         <li><i class="fas fa-check"></i> Priority Email Support</li>
                         <li><i class="fas fa-check"></i> 14-Day Free Updates</li>
                     </ul>
-                    <a href="https://gumroad.com/checkout" class="btn-price">Get Premium</a>
+                    <a href="https://rmotoflare.gumroad.com/l/mkyvi?wanted=true&clear=true" class="btn-price">Get Premium</a>
                 </div>
                 
             </div>
