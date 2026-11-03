@@ -47,7 +47,10 @@ if (!isset($_POST['agreement'])) {
 $emailSent = sendAdminNotification($data);
 
 if (!$emailSent) {
-    logError("Failed to send admin email for: " . $data['email']);
+    // sendAdminNotification() already logged the reason and saved the
+    // submission to logs/submissions.log, so the entry is not lost.
+    // The visitor is still redirected to checkout below.
+    logError("Admin email failed, submission saved to fallback log for: " . $data['email']);
 }
 
 // ✅ Store in session (for reference)

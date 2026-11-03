@@ -6,6 +6,20 @@ define('SITE_NAME', 'VinUnified');
 define('ADMIN_EMAIL', 'rmoto7817@gmail.com'); // ✅ New admin email
 
 // ============================================
+// SMTP (optional, but recommended on the live host)
+// Fill these in on the live server, or set SMTP_HOST / SMTP_USER /
+// SMTP_PASS / SMTP_PORT / SMTP_ENCRYPTION / SMTP_FROM as server
+// environment variables. Do NOT commit a real password to Git.
+// When these are empty, send-email.php falls back to PHP mail().
+// ============================================
+define('SMTP_HOST', '');
+define('SMTP_PORT', 465);
+define('SMTP_USER', '');
+define('SMTP_PASS', '');
+define('SMTP_FROM', 'support@vinunified.store');
+define('SMTP_ENCRYPTION', 'ssl'); // 'ssl' for port 465, 'tls' for port 587
+
+// ============================================
 // GUMROAD PAYMENT LINKS
 // ============================================
 define('PAYMENT_BASIC', 'https://gumroad.com/checkout?_gl=1*1u1gg8z*_ga*NTQxMDEyMjQ5LjE3OTM2MjE5MzU.*_ga_6LJN6D94N6*czE3OTM2MjE5MzQkbzEkZzEkdDE3OTM2MjE5NzAkajI0JGwwJGgw');   // £25
