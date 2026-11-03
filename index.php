@@ -82,8 +82,10 @@ $pricing = getPricingByCountry($userCountry);
                         Know Before You <span class="gradient-text">Drive</span>
                     </h1>
                     <p class="hero-desc">
-                        Get complete vehicle history reports including accidents, title records, 
-                        odometer fraud, recalls, and market value. Trusted worldwide.
+                        Get a comprehensive vehicle history report in the UK, including accident records, 
+                        title information, odometer discrepancies, outstanding recalls, and market value. 
+                        For security and privacy, only the registered vehicle owner is eligible to purchase 
+                        and access a vehicle history report. Our service operates exclusively in the UK.
                     </p>
                     <div class="hero-stats">
                         <div class="stat"><i class="fas fa-database"></i> 70+ Data Sources</div>
@@ -277,7 +279,7 @@ $pricing = getPricingByCountry($userCountry);
                         <li><i class="fas fa-check"></i> Priority Email Support</li>
                         <li><i class="fas fa-check"></i> 14-Day Free Updates</li>
                     </ul>
-                    <a href="https://gumroad.com/checkout?_gl=1*cwuwn1*_ga*NTQxMDEyMjQ5LjE3OTM2MjE5MzU.*_ga_6LJN6D94N6*czE3OTM3MDEwNDUkbzMkZzEkdDE3OTM3MDEwNTckajQ4JGwwJGgw" class="btn-price">Get Premium</a>
+                    <a href="https://gumroad.com/checkout" class="btn-price">Get Premium</a>
                 </div>
                 
             </div>

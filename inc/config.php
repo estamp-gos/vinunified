@@ -23,7 +23,7 @@ define('SMTP_ENCRYPTION', 'ssl'); // 'ssl' for port 465, 'tls' for port 587
 // GUMROAD PAYMENT LINKS
 // ============================================
 define('PAYMENT_BASIC', 'https://gumroad.com/checkout?_gl=1*1u1gg8z*_ga*NTQxMDEyMjQ5LjE3OTM2MjE5MzU.*_ga_6LJN6D94N6*czE3OTM2MjE5MzQkbzEkZzEkdDE3OTM2MjE5NzAkajI0JGwwJGgw');   // £25
-define('PAYMENT_PREMIUM', 'https://gumroad.com/checkout?_gl=1*1tzxhkm*_ga*NTQxMDEyMjQ5LjE3OTM2MjE5MzU.*_ga_6LJN6D94N6*czE3OTM2MjE5MzQkbzEkZzEkdDE3OTM2MjE5NTEkajQzJGwwJGgw'); // £55
+define('PAYMENT_PREMIUM', 'https://gumroad.com/checkout'); // £55
 
 // Error Reporting
 error_reporting(E_ALL);
