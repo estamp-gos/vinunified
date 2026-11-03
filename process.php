@@ -56,18 +56,8 @@ if (!$emailSent) {
 // ✅ Store in session (for reference)
 $_SESSION['form_data'] = $data;
 
-// ✅ Redirect to Gumroad based on package
-$paymentUrl = '';
-switch($data['package']) {
-    case 'basic':
-        $paymentUrl = PAYMENT_BASIC;    // £25
-        break;
-    case 'premium':
-        $paymentUrl = PAYMENT_PREMIUM;  // £55
-        break;
-    default:
-        $paymentUrl = PAYMENT_BASIC;
-}
+// ✅ Redirect to Gumroad based on package (Premium £55 is the only package)
+$paymentUrl = PAYMENT_PREMIUM;
 
 header('Location: ' . $paymentUrl);
 exit;

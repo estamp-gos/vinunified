@@ -167,15 +167,9 @@ $pricing = getPricingByCountry($userCountry);
                                 <div class="pricing-selector">
                                     <label>Choose Your Package</label>
                                     <div class="package-cards">
-                                        <label class="package-card">
-                                            <input type="radio" name="package" value="basic" data-price="£25">
-                                            <div class="package-icon"><i class="fas fa-file-alt"></i></div>
-                                            <div class="package-name">Basic</div>
-                                            <div class="package-price">£25</div>
-                                        </label>
                                         <label class="package-card popular">
                                             <div class="popular-tag">Most Popular</div>
-                                            <input type="radio" name="package" value="premium" data-price="£55">
+                                            <input type="radio" name="package" value="premium" data-price="£55" checked>
                                             <div class="package-icon"><i class="fas fa-crown"></i></div>
                                             <div class="package-name">Premium</div>
                                             <div class="package-price">£55</div>
