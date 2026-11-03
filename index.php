@@ -262,27 +262,8 @@ $pricing = getPricingByCountry($userCountry);
             </div>
             <div class="pricing-grid">
                 
-                <!-- Basic Plan -->
-                <div class="price-card">
-                    <div class="price-icon"><i class="fas fa-file"></i></div>
-                    <h3>Basic</h3>
-                    <div class="price-value">£25</div>
-                    <ul class="price-features">
-                        <li><i class="fas fa-check"></i> Accident History</li>
-                        <li><i class="fas fa-check"></i> Title Information</li>
-                        <li><i class="fas fa-check"></i> Odometer Verification</li>
-                        <li><i class="fas fa-check"></i> Safety Recalls</li>
-                        <li><i class="fas fa-check"></i> Vehicle Specifications</li>
-                        <li><i class="fas fa-check"></i> Basic Market Value</li>
-                        <li><i class="fas fa-check"></i> 24/7 Email Support</li>
-                        <li><i class="fas fa-check"></i> Instant PDF Delivery</li>
-                    </ul>
-                    <a href="https://gumroad.com/checkout?_gl=1*1u1gg8z*_ga*NTQxMDEyMjQ5LjE3OTM2MjE5MzU.*_ga_6LJN6D94N6*czE3OTM2MjE5MzQkbzEkZzEkdDE3OTM2MjE5NzAkajI0JGwwJGgw" class="btn-price">Get Basic</a>
-                </div>
-                
                 <!-- Premium Plan -->
                 <div class="price-card popular">
-                    <div class="popular-badge">Best Value</div>
                     <div class="price-icon"><i class="fas fa-crown"></i></div>
                     <h3>Premium</h3>
                     <div class="price-value">£55</div>
@@ -296,7 +277,7 @@ $pricing = getPricingByCountry($userCountry);
                         <li><i class="fas fa-check"></i> Priority Email Support</li>
                         <li><i class="fas fa-check"></i> 14-Day Free Updates</li>
                     </ul>
-                    <a href="https://gumroad.com/checkout?_gl=1*1tzxhkm*_ga*NTQxMDEyMjQ5LjE3OTM2MjE5MzU.*_ga_6LJN6D94N6*czE3OTM2MjE5MzQkbzEkZzEkdDE3OTM2MjE5NTEkajQzJGwwJGgw" class="btn-price">Get Premium</a>
+                    <a href="https://gumroad.com/checkout?_gl=1*cwuwn1*_ga*NTQxMDEyMjQ5LjE3OTM2MjE5MzU.*_ga_6LJN6D94N6*czE3OTM3MDEwNDUkbzMkZzEkdDE3OTM3MDEwNTckajQ4JGwwJGgw" class="btn-price">Get Premium</a>
                 </div>
                 
             </div>
