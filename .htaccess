@@ -1,3 +1,8 @@
+# Never serve environment files over HTTP (SMTP credentials live in .env)
+<Files ".env">
+    Require all denied
+</Files>
+
 # Enable HTTPS redirect
 RewriteEngine On
 RewriteCond %{HTTPS} off

@@ -1,6 +1,51 @@
 <?php
 // inc/config.php - Simplified Config (No DB, Only Gumroad)
 
+// Load a .env file from the project root into the environment, if one
+// exists. This is what makes a .env file in the project root actually work:
+// PHP does not read .env files on its own, so without this loader the SMTP
+// settings in .env were silently ignored and email fell back to mail().
+// Real server environment variables always win over .env values, and
+// values from .env are never logged or output anywhere.
+(function () {
+    $envFile = __DIR__ . '/../.env';
+    if (!is_readable($envFile)) {
+        return;
+    }
+    $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    if ($lines === false) {
+        return;
+    }
+    foreach ($lines as $line) {
+        $line = trim($line);
+        if ($line === '' || $line[0] === '#') {
+            continue;
+        }
+        if (strpos($line, 'export ') === 0) {
+            $line = trim(substr($line, 7));
+        }
+        $pos = strpos($line, '=');
+        if ($pos === false) {
+            continue;
+        }
+        $key = trim(substr($line, 0, $pos));
+        $value = trim(substr($line, $pos + 1));
+        if (strlen($value) >= 2) {
+            $first = $value[0];
+            $last = $value[strlen($value) - 1];
+            if (($first === '"' && $last === '"') || ($first === "'" && $last === "'")) {
+                $value = substr($value, 1, -1);
+            }
+        }
+        if ($key === '' || getenv($key) !== false) {
+            continue;
+        }
+        putenv($key . '=' . $value);
+        $_ENV[$key] = $value;
+        $_SERVER[$key] = $value;
+    }
+})();
+
 define('SITE_URL', 'https://vinunified.store');
 define('SITE_NAME', 'VinUnified');
 define('ADMIN_EMAIL', 'rmoto7817@gmail.com'); // ✅ New admin email
