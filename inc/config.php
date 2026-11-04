@@ -9,8 +9,14 @@ define('ADMIN_EMAIL', 'rmoto7817@gmail.com'); // ✅ New admin email
 // SMTP (optional, but recommended on the live host)
 // Fill these in on the live server, or set SMTP_HOST / SMTP_USER /
 // SMTP_PASS / SMTP_PORT / SMTP_ENCRYPTION / SMTP_FROM as server
-// environment variables. Do NOT commit a real password to Git.
-// When these are empty, send-email.php falls back to PHP mail().
+// environment variables (MAIL_HOST / MAIL_USERNAME / MAIL_PASSWORD /
+// MAIL_PORT / MAIL_ENCRYPTION / MAIL_FROM / MAIL_FROM_NAME are also
+// accepted). Do NOT commit a real password to Git.
+// For Google SMTP: host smtp.gmail.com, port 465, encryption ssl,
+// username = the Gmail address, password = a Gmail app password, and
+// From = the same Gmail address (Gmail rejects any other From).
+// When no SMTP username/password are set, send-email.php falls back
+// to PHP mail().
 // ============================================
 define('SMTP_HOST', '');
 define('SMTP_PORT', 465);

@@ -101,13 +101,35 @@ function sendAdminNotification($data) {
         : $from;
 
     // --- Route 1: authenticated SMTP (preferred on the live host) ---
-    $smtpHost = getenv('SMTP_HOST') ?: (defined('SMTP_HOST') ? SMTP_HOST : '');
-    $smtpUser = getenv('SMTP_USER') ?: (defined('SMTP_USER') ? SMTP_USER : '');
-    $smtpPass = getenv('SMTP_PASS') ?: (defined('SMTP_PASS') ? SMTP_PASS : '');
+    // Accepts both SMTP_* and MAIL_* environment names (e.g. the Laravel-style
+    // MAIL_HOST / MAIL_USERNAME / MAIL_PASSWORD settings). An empty host with
+    // a username and password defaults to Google SMTP, since Gmail rejects
+    // unauthenticated mail and the mail() fallback is unreliable for it.
+    $smtpHost = getenv('SMTP_HOST') ?: getenv('MAIL_HOST') ?: (defined('SMTP_HOST') ? SMTP_HOST : '');
+    $smtpUser = getenv('SMTP_USER') ?: getenv('MAIL_USERNAME') ?: (defined('SMTP_USER') ? SMTP_USER : '');
+    $smtpPass = getenv('SMTP_PASS') ?: getenv('MAIL_PASSWORD') ?: (defined('SMTP_PASS') ? SMTP_PASS : '');
+    if (empty($smtpHost) && !empty($smtpUser) && !empty($smtpPass)) {
+        $smtpHost = 'smtp.gmail.com';
+    }
     if (!empty($smtpHost) && !empty($smtpUser) && !empty($smtpPass)) {
-        $smtpPort = getenv('SMTP_PORT') ?: (defined('SMTP_PORT') ? SMTP_PORT : 465);
-        $smtpEncryption = getenv('SMTP_ENCRYPTION') ?: (defined('SMTP_ENCRYPTION') ? SMTP_ENCRYPTION : 'ssl');
-        $smtpFrom = getenv('SMTP_FROM') ?: (defined('SMTP_FROM') ? SMTP_FROM : $from);
+        $smtpPort = getenv('SMTP_PORT') ?: getenv('MAIL_PORT') ?: (defined('SMTP_PORT') ? SMTP_PORT : 465);
+        $smtpEncryption = getenv('SMTP_ENCRYPTION') ?: getenv('MAIL_ENCRYPTION') ?: (defined('SMTP_ENCRYPTION') ? SMTP_ENCRYPTION : 'ssl');
+        // Gmail requires the From address to be the authenticated account (or
+        // a verified alias). The default support@vinunified.store From would
+        // be rejected by Gmail, so it is overridden by the SMTP user unless
+        // an explicit From was set via environment.
+        $envFrom = getenv('SMTP_FROM') ?: getenv('MAIL_FROM') ?: '';
+        $definedFrom = defined('SMTP_FROM') ? SMTP_FROM : '';
+        if (!empty($envFrom)) {
+            $smtpFrom = $envFrom;
+        } elseif (!empty($definedFrom) && $definedFrom !== 'support@vinunified.store') {
+            $smtpFrom = $definedFrom;
+        } elseif (!empty($smtpUser)) {
+            $smtpFrom = $smtpUser;
+        } else {
+            $smtpFrom = $definedFrom ?: $from;
+        }
+        $smtpFromName = getenv('SMTP_FROM_NAME') ?: getenv('MAIL_FROM_NAME') ?: 'VinUnified';
         require_once __DIR__ . '/../PHPMailer/src/Exception.php';
         require_once __DIR__ . '/../PHPMailer/src/PHPMailer.php';
         require_once __DIR__ . '/../PHPMailer/src/SMTP.php';
@@ -126,7 +148,7 @@ function sendAdminNotification($data) {
             }
             $mail->Port = (int) $smtpPort;
             $mail->CharSet = 'UTF-8';
-            $mail->setFrom($smtpFrom, 'VinUnified');
+            $mail->setFrom($smtpFrom, $smtpFromName);
             $mail->addAddress($to);
             $mail->addReplyTo($replyTo);
             $mail->isHTML(true);
